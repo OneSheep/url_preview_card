@@ -134,7 +134,7 @@ class _UrlPreviewCardState extends State<UrlPreviewCard> {
       });
     }
 
-    var response = await get(widget.url);
+    var response = await get(widget.url, headers: {'User-Agent': 'WhatsApp'});
     if (!this.mounted) return;
 
     if (response.statusCode != 200) {

@@ -1,3 +1,6 @@
+## [0.2.1] - 26/05/2021.
+
+* Updated dependencies for url_launcher
 ## [0.2.0] - 26/05/2021.
 
 * Updated dependencies

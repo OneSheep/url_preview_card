@@ -1,6 +1,6 @@
 name: url_preview_card
 description: Flutter package to show url preview. Cache newwork response.
-version: 0.1.4
+version: 0.2.0
 homepage: https://github.com/OneSheep/url_preview_card.git
 
 environment:

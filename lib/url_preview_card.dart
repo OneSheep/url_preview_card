@@ -134,7 +134,7 @@ class _UrlPreviewCardState extends State<UrlPreviewCard> {
       });
     }
 
-    var response = await get(widget.url);
+    var response = await get(Uri.parse(widget.url));
     if (!this.mounted) return;
 
     if (response.statusCode != 200) {

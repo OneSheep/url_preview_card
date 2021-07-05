@@ -7,12 +7,12 @@ import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:string_validator/string_validator.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_preview_card/widgets/preview_description.dart';
 import 'package:url_preview_card/widgets/preview_image.dart';
 import 'package:url_preview_card/widgets/preview_site_name.dart';
 import 'package:url_preview_card/widgets/preview_title.dart';
-import 'package:string_validator/string_validator.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 /// Provides URL preview
 class UrlPreviewCard extends StatefulWidget {
@@ -28,8 +28,11 @@ class UrlPreviewCard extends StatefulWidget {
   /// Text style for description
   final TextStyle descriptionStyle;
 
-  // Text style for site name
+  /// Text style for site name
   final TextStyle siteNameStyle;
+
+  /// Elevation for the card
+  final double cardElevation;
 
   /// Background color
   final Color bgColor;
@@ -65,6 +68,7 @@ class UrlPreviewCard extends StatefulWidget {
       fontSize: 14,
       color: Colors.black,
     ),
+    this.cardElevation = 5,
     this.bgColor = Colors.white,
     this.titleLines = 2,
     this.descriptionLines = 3,
@@ -84,6 +88,7 @@ class _UrlPreviewCardState extends State<UrlPreviewCard> {
   TextStyle _descriptionStyle;
   TextStyle _siteNameStyle;
   double _previewHeight;
+  double _cardElevation;
   Color _bgColor;
   int _titleLines;
   int _descriptionLines;
@@ -110,6 +115,7 @@ class _UrlPreviewCardState extends State<UrlPreviewCard> {
     _previewContainerPadding = widget.previewContainerPadding;
     _onTap = widget.onTap ?? _launchURL;
     _titleStyle = widget.titleStyle;
+    _cardElevation = widget.cardElevation;
     _descriptionStyle = widget.descriptionStyle;
     _siteNameStyle = widget.siteNameStyle;
   }
@@ -206,7 +212,7 @@ class _UrlPreviewCardState extends State<UrlPreviewCard> {
 
   Card _buildPreviewCard(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: _cardElevation,
       margin: const EdgeInsets.all(0.0),
       color: _bgColor,
       child: Row(

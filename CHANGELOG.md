@@ -1,3 +1,9 @@
+## [0.2.1] - 26/05/2021.
+
+* Updated dependencies for url_launcher
+## [0.2.0] - 26/05/2021.
+
+* Updated dependencies
 ## [1.1.0] - 02/10/2020.
 
 * Cache http response using CacheStore

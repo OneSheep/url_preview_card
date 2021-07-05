@@ -14,6 +14,8 @@ class PreviewSiteName extends StatelessWidget {
         _siteName,
         textAlign: TextAlign.left,
         style: _textStyle,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       );
     } else {
       return SizedBox();
